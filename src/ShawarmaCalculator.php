@@ -19,14 +19,12 @@ class ShawarmaCalculator
         foreach ($this->result as $object) {
             if (count($object->ingredients) > 0) {
                 foreach ($object->ingredients as $ingredient) {
-                    if (!array_search($ingredient, $ingredients)) {
-                        $ingredients[] = $ingredient;
-                    }
+                    $ingredients[] = $ingredient;
                 }
             }
         }
 
-        return $ingredients;
+        return array_unique($ingredients);
     }
 
     public function price(): float|int
